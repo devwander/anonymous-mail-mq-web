@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { consumeMessageFromQueue, sendMessageToQueue } from "./lib/mq";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [receivedMessage, setReceivedMessage] = useState("");
+
+  const handleSendMessage = () => {
+    const messageElement = document.getElementById(
+      "message"
+    ) as HTMLTextAreaElement;
+
+    if (messageElement) {
+      const message = messageElement.value;
+
+      if (message) {
+        sendMessageToQueue(message);
+        messageElement.value = "";
+      } else {
+        alert("Please enter a message.");
+      }
+    }
+  };
+
+  const handleConsumeMessage = async () => {
+    const response = await consumeMessageFromQueue();
+    if (response) {
+      setReceivedMessage(response.message);
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <h1>Anonymous Mail</h1>
+
+      <textarea id="message" placeholder="Digite aqui sua mensagem." />
+
+      <button onClick={handleSendMessage}>Send</button>
+      <button onClick={handleConsumeMessage}>Consume</button>
+
+      {receivedMessage && (
+        <div>
+          <h2>Mensagem Recebida:</h2>
+          <p>{receivedMessage}</p>
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
