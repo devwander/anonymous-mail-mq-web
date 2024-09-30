@@ -1,0 +1,25 @@
+/* src/global.css */
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f8f9fa; /* Cor de fundo padrão */
+  color: #212529; /* Cor do texto padrão */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+/* Adicione outras regras de estilo globais aqui, se necessário */

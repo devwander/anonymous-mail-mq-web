@@ -1,50 +1,55 @@
-# React + TypeScript + Vite
+# Correio Anônimo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma aplicação web desenvolvida com Vite.js que permite o envio e recebimento de mensagens de forma anônima. Os usuários podem enviar mensagens e consumir mensagens enviadas por outros, mantendo o anonimato.
 
-Currently, two official plugins are available:
+## Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Vite.js](https://vitejs.dev/) - Ferramenta de build
+- [React](https://reactjs.org/) - Biblioteca JavaScript para construção de interfaces
+- [React Router DOM](https://reactrouter.com/) - Biblioteca para gerenciamento de rotas
+- [Styled Components](https://styled-components.com/) - Biblioteca para estilização de componentes
+- [TypeScript](https://www.typescriptlang.org/) - Superconjunto do JavaScript com tipagem estática
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Enviar Mensagens**: Permite que os usuários enviem mensagens anonimamente.
+- **Receber Mensagens**: Exibe a última mensagem recebida de forma anônima.
+- **Interface Responsiva**: Adaptável a diferentes tamanhos de tela.
 
-- Configure the top-level `parserOptions` property like this:
+## Instalação
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. **Clone o repositório:**
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+   ```bash
+   git clone https://github.com/seuusuario/correio-anonimo.git
+   cd correio-anonimo
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+   ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+2. **Instale as dependências:**
+
+   ```bash
+   npm install
+
+   ```
+
+3. **Inicie o servidor de desenvolvimento:**
+
+   ```bash
+   npm run dev
+
+   ```
+
+4. **Abra o navegador e acesse:**
+
+   http://localhost:5173
+
+# Licença
+
+Este projeto está licenciado sob a MIT License.
+
+# Contribuidores
+
+- devwander
+- pk-jhon
+- joao-firmino
